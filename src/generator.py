@@ -38,6 +38,10 @@ def generate_samples(
         treatment_effect: value of the treatment effect
         size: number of samples
         cov_mu_eps: list with mean and variance for the covariates
+        non_linear: list with bool indicating if there is a non-linear covariate
+        p_binomial: float indicating distribution of treatment/control
+        random_epsilon: list with mean and variance for the covariates
+        seed: random seed, if fixed
     """
     if seed:
         np.random.seed(seed)
