@@ -66,35 +66,3 @@ def get_ate_doubly_robust(data, covariates, propensity_score: float = 0.5):
     )
 
 
-def get_ate_doubly_robust_wrong(data, covariates, propensity_score: float = 0.5):
-    if not propensity_score:
-        propensity_score = LogisticRegression(C=1e6, max_iter=1000).fit(data[covariates], data['T']).predict_proba(data[covariates])[:, 1]
-    
-    model_control = HistGradientBoostingRegressor()
-    outcome_regression_control = model_control.fit(
-        data.query('T==0')[covariates], data.query('T==0')['Y']
-    ).predict(data.query('T==0')[covariates])
-
-    model_treatment = HistGradientBoostingRegressor()
-    outcome_regression_treatment = model_treatment.fit(
-        data.query('T==1')[covariates], data.query('T==1')['Y']
-    ).predict(data.query('T==1')[covariates])
-    
-    return (
-        np.mean(data.query('T==1')['T']*(data.query('T==1')['Y'] - outcome_regression_treatment)/propensity_score + outcome_regression_treatment) -
-        np.mean((1-data.query('T==0')['T'])*(data.query('T==0')['Y'] - outcome_regression_control)/(1-propensity_score) + outcome_regression_control)
-    )
-
-
-def doubly_robust_matheus(data, covariates, ps: float =0.5):
-    T = 'T'
-    Y = 'Y'
-    if not ps:
-        ps = LogisticRegression(C=1e6, max_iter=1000).fit(data[covariates], data[T]).predict_proba(data[covariates])[:, 1]
-
-    mu0 = HistGradientBoostingRegressor().fit(data.query(f"{T}==0")[covariates], data.query(f"{T}==0")[Y]).predict(data[covariates])
-    mu1 = HistGradientBoostingRegressor().fit(data.query(f"{T}==1")[covariates], data.query(f"{T}==1")[Y]).predict(data[covariates])
-    return (
-        np.mean(data[T]*(data[Y] - mu1)/ps + mu1) -
-        np.mean((1-data[T])*(data[Y] - mu0)/(1-ps) + mu0)
-    )
