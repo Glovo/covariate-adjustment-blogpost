@@ -1,3 +1,10 @@
+## Introduction
+
+The goal of this repo is to run some analysis to support the covariate adjustment blogpost from the Glovo Engineering blog. The blogpost describes some methods to reduce variance using covariates in order to estimate effects in an AB test. In this repo we have code to show, via simulations, the performance of such methods, organized as follows:
+* Utilites in `src/` to run the desired simulations
+* Notebooks with the actual simulations in `notebooks/`
+
+
 ### Setup
 To install the requirements run:
 
