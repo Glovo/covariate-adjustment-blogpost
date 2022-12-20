@@ -32,4 +32,5 @@ those methods and generate the DAGs of the blogpost.
 You can email:
 * victor.bouzas@glovoapp.com
 * david.masip@glovoapp.com
+
 In case you have any doubts or suggestions to improve.
