@@ -25,3 +25,11 @@ To run the simulations with the comparisons of the covariate adjustment methods
 run the notebook on `notebooks/covariate_adjustment.ipynb`. The other notebook 
 `notebooks/good_bad_covariates.ipynb` compare the use of bad and good covariates with 
 those methods and generate the DAGs of the blogpost.
+
+
+### Contact
+
+You can email:
+* victor.bouzas@glovoapp.com
+* david.masip@glovoapp.com
+In case you have any doubts or suggestions to improve.
