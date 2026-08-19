@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 def get_ate_cuped(df, prediction_column="Y_before"):
-    theta = df.cov().loc[prediction_column, "Y"] / df.cov().loc[prediction_column, "Y"]
+    theta = df.cov().loc[prediction_column, "Y"] / df[prediction_column].var()
     
     r = df.copy()
     r['Y_cuped'] = df['Y'] - theta * (df[prediction_column] - df[prediction_column].mean())
