@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛠️ covariate-adjustment-blogpost
+# covariate-adjustment-blogpost
 
 **Simulations behind the Glovo Engineering blog post on covariate adjustment in A/B tests**
 
@@ -8,9 +8,9 @@ This repo holds the simulation code and notebooks that back the covariate adjust
 variance-reduction methods (CUPED, CUPAC, multivariable regression, doubly robust) on synthetic A/B test data.
 It is **not** a library or a service: nothing is packaged, published or deployed.
 
-[![Python](https://img.shields.io/badge/Python-%5E3.8-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Poetry](https://img.shields.io/badge/Poetry-managed-60A5FA?logo=poetry&logoColor=white)](pyproject.toml)
-[![JupyterLab](https://img.shields.io/badge/JupyterLab-%5E3.4.5-F37626?logo=jupyter&logoColor=white)](pyproject.toml)
+[![JupyterLab](https://img.shields.io/badge/JupyterLab-F37626?logo=jupyter&logoColor=white)](pyproject.toml)
 
 </div>
 
@@ -80,7 +80,7 @@ poetry run jupyter lab                                                   # then 
 
 ```text
 .
-├── notebooks/                      # ⭐ the simulations behind the blog post
+├── notebooks/                      # source of truth: the simulations behind the blog post
 │   ├── covariate_adjustment.ipynb  # method comparison
 │   └── good_bad_covariates.ipynb   # good vs bad covariates, DAGs
 ├── src/                            # helpers imported by the notebooks
